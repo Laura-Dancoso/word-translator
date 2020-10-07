@@ -1,37 +1,33 @@
-var words = ["hello", "bye"];
+var words = new Set();
 
 //*crear la tabla
 var table= document.getElementById('table');
-table.innerHTML= createTable();
 
-function createTable(){
+function createTable(array){
     let html=createTHead();
-    html += createTBody();
+    html += createTBody(array);
     return html;
 }
 
 function createTHead(){
-    let html ="";
-    html += '<thead>'
-    html += '<tr class="notranslate">'
-    html += '<th>Inglés</th>'
-    html += '<th>Español</th>'
-    html += '</tr>'
-    html += '</thead>'
-    return html
+    return `<thead>
+    <tr class="notranslate">
+        <th>Inglés</th>
+        <th>Español</th>
+    </tr>
+</thead>    
+`;
 }
-function createTBody(){
+function createTBody(array){
     let html= "";
     html += '<tbody>'
-    for(let i =0; i<words.length;i++){
-        html += '<tr>'
-        html += '<td class="notranslate">'
-        html += words[i]
-        html += '</td>'
-        html += '<td>'
-        html += words[i]
-        html += '</td>'
-        html+= '</tr>'
+    for(let i =0; i<array.length;i++){
+        html += `
+        <tr>
+            <td class="notranslate">${array[i]}</td>
+            <td>${array[i]}</td>
+        </tr>
+        `;
     }
     html += '</tbody>'
     return html;
@@ -48,13 +44,27 @@ input.addEventListener("keyup", function (event) {
         addWord();
     }
 });
-//*función que agrega una palabra al array words
+//*función que agrega una palabra al array array
 function addWord(){
     if (input.value != null && input.value != "") {
-        words.push(input.value);
-        table.innerHTML= createTable();
-        //falta resolver que se traduzca solo
+        //si la palabra ya está en el array no se agrega
+        // https://youtu.be/3NG8zy0ywIk mirar eso
+        words.add(input.value);
+        table.innerHTML= createTable(Array.from(words));
     }
     input.value= input.defaultValue;
 }
-
+//*buscar una palabra en la tabla
+$('#search').on('keyup',function(){
+    var value = $(this).val();
+    table.innerHTML= createTable(searchWord(value,Array.from(words)));
+});
+function searchWord(value, array){
+    var filteredArray = [];
+    for(let i = 0; i<array.length;i++){
+        if(array[i].toLowerCase().includes(value.toLowerCase())){
+            filteredArray.push(array[i]);
+        }
+    }
+    return filteredArray;
+}
