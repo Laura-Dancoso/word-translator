@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word translator</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 </head>
 <body>
     <div>
         <h1 class="notranslate">Write a word and it will translated immediately</h1>
-        <a href="#"><div id="google_translate_element"></div></a>
+        <!-- <div id="google_translate_element"></div> -->
     </div>
     <div>
         <input id="add" type="text" name="" placeholder="Type a word...">
@@ -17,9 +18,9 @@
     </div>
     <table id="table"></table>
     <script>
-        function googleTranslateElementInit(){
-            new google.translate.TranslateElement({pageLanguage: 'es', layout:google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-        }    
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
     </script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="js/index.js"></script>
