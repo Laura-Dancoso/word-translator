@@ -68,3 +68,21 @@ function searchWord(value, array){
     }
     return filteredArray;
 }
+function editWord(oldWord, newWord){
+    var array = Array.from(words);
+    var index = array.indexOf(oldWord);
+    if (index !== -1) {
+    array[index] = newWord;
+    words=new Set(array);
+    table.innerHTML= createTable(Array.from(words));
+    }
+}
+function deleteWord(word){
+    var array = Array.from(words);
+    var index = array.indexOf(word);
+    if (index !== -1) {
+    array.splice(index,index+1);
+    words=new Set(array);
+    table.innerHTML= createTable(Array.from(words));
+    }
+}
