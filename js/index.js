@@ -4,9 +4,13 @@ var words = new Set();
 var table= document.getElementById('table');
 
 function createTable(array){
-    let html=createTHead();
-    html += createTBody(array);
-    return html;
+    if(array.length>0){
+        let html=createTHead();
+        html += createTBody(array);
+        return html;
+    }else{
+        return "";
+    }
 }
 
 function createTHead(){
@@ -24,7 +28,10 @@ function createTBody(array){
     for(let i =0; i<array.length;i++){
         html += `
         <tr>
-            <td class="notranslate">${array[i]}</td>
+            <td class="notranslate">${array[i]}
+            <button onclick="editWord('${array[i]}')">Edit</button>
+            <button onclick="deleteWord('${array[i]}')">Delete</button>
+            </td>
             <td>${array[i]}</td>
         </tr>
         `;
@@ -68,13 +75,16 @@ function searchWord(value, array){
     }
     return filteredArray;
 }
-function editWord(oldWord, newWord){
-    var array = Array.from(words);
-    var index = array.indexOf(oldWord);
-    if (index !== -1) {
-    array[index] = newWord;
-    words=new Set(array);
-    table.innerHTML= createTable(Array.from(words));
+function editWord(oldWord){
+    var newWord= prompt("type the new word");
+    if (newWord != null && newWord != "") {
+        var array = Array.from(words);
+        var index = array.indexOf(oldWord);
+        if (index !== -1) {
+        array[index] = newWord;
+        words=new Set(array);
+        table.innerHTML= createTable(Array.from(words));
+        }
     }
 }
 function deleteWord(word){
