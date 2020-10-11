@@ -96,3 +96,9 @@ function deleteWord(word){
     table.innerHTML= createTable(Array.from(words));
     }
 }
+function setLanguage(){
+  if(document.getElementsByClassName('goog-te-combo')[0] != undefined){
+    document.getElementsByClassName('goog-te-combo')[0].value ='es'
+  }
+}
+window.onload=setLanguage();
