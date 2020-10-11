@@ -1,6 +1,5 @@
 var words = new Set();
-var languages=[{lang:'en',name:'English'},{lang:'es',name:'Spanish'}];
-var selectedLanguage;
+var languages={};
 
 //*crear la tabla
 var table= document.getElementById('table');
@@ -18,8 +17,8 @@ function createTable(array){
 function createTHead(){
     return `<thead>
     <tr class="notranslate">
-        <th>${languages[0].name}</th>
-        <th>${languages[1].name}</th>
+        <th>${languages.from}</th>
+        <th>${languages.to}</th>
     </tr>
 </thead>    
 `;
@@ -99,10 +98,12 @@ function deleteWord(word){
     }
 }
 $('.inputs').hide();
-$('.english').hide();
-$('.spanish').hide();
 $('#google_translate_element').change(function(){
   
-  selectedLanguage=$('.goog-te-combo')[0].value
-  alert(selectedLanguage)
+  let = selectedLanguage=$('.goog-te-combo')[0].value;
+  (selectedLanguage=== 'es')? languages.from='English' : languages.from='Spanish';
+  (selectedLanguage=== 'es')? languages.to='Spanish' : languages.to='English';
+  $('.inputs').show();
+  $('#languageSelected').hide();
+  $('#title').text(`Write a word in ${languages.from} and it will be translated in ${languages.to}`)
 })
