@@ -106,4 +106,5 @@ $('#google_translate_element').change(function(){
   $('.inputs').show();
   $('#languageSelected').hide();
   $('#title').text(`Write a word in ${languages.from} and it will be translated in ${languages.to}`)
+  alert("If you want to change the language refresh the page" +'\n'+"Si quieres cambiar el lenguaje refrescar la página");
 })
