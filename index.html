@@ -11,10 +11,10 @@
 
 <body>
   <div>
-    <h1 class="notranslate">Write a word and it will translated immediately</h1>
+    <h1 class="notranslate">Write a word and it will be translated</h1>
     <div id="google_translate_element"></div>
   </div>
-  <div class="flex">
+  <div class="flex inputs">
     <div>
       <input class="notranslate" id="add" type="text" name="" placeholder="Type a word...">
       <button class="notranslate" id="add_button">Add</button>
@@ -23,13 +23,14 @@
       <input class="notranslate" id="search" type="text" name="" placeholder="Search a word...">
     </div>
   </div>
-  <table id="table"></table>
+  <table id="table-en-es"></table>
+  <table id="table-es-en"></table>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="js/index.js"></script>
   <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
-        pageLanguage: 'en'
+        pageLanguage: 'en,es',includedLanguages: 'es,en'
       }, 'google_translate_element');
     }
   </script>

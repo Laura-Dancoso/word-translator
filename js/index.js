@@ -1,4 +1,6 @@
 var words = new Set();
+var languages=[{lang:'en',name:'English'},{lang:'es',name:'Spanish'}];
+var selectedLanguage;
 
 //*crear la tabla
 var table= document.getElementById('table');
@@ -16,8 +18,8 @@ function createTable(array){
 function createTHead(){
     return `<thead>
     <tr class="notranslate">
-        <th>Inglés</th>
-        <th>Español</th>
+        <th>${languages[0].name}</th>
+        <th>${languages[1].name}</th>
     </tr>
 </thead>    
 `;
@@ -43,7 +45,8 @@ function createTBody(array){
 //*le agrego click event al bottón
 var input = document.getElementById("add");
 var button =document.getElementById("add_button");
-
+//*focus en el input
+input.focus();
 button.addEventListener("click", addWord);
 input.addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
@@ -55,7 +58,6 @@ input.addEventListener("keyup", function (event) {
 function addWord(){
     if (input.value != null && input.value != "") {
         //si la palabra ya está en el array no se agrega
-        // https://youtu.be/3NG8zy0ywIk mirar eso
         words.add(input.value);
         table.innerHTML= createTable(Array.from(words));
     }
@@ -96,9 +98,11 @@ function deleteWord(word){
     table.innerHTML= createTable(Array.from(words));
     }
 }
-function setLanguage(){
-  if(document.getElementsByClassName('goog-te-combo')[0] != undefined){
-    document.getElementsByClassName('goog-te-combo')[0].value ='es'
-  }
-}
-window.onload=setLanguage();
+$('.inputs').hide();
+$('.english').hide();
+$('.spanish').hide();
+$('#google_translate_element').change(function(){
+  
+  selectedLanguage=$('.goog-te-combo')[0].value
+  alert(selectedLanguage)
+})
