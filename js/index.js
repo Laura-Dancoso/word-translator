@@ -35,8 +35,8 @@ function createTBody(array) {
             <td class="from notranslate">${array[i]}</td>
             <td class="to">${array[i]}</td>
             <td class="noExl">
-            <button  onclick="editWord('${array[i]}')">Edit</button>
-            <button  onclick="deleteWord('${array[i]}')">Delete</button>
+            <button  title="Edit word" onclick="editWord('${array[i]}')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            <button title="Delete word" onclick="deleteWord('${array[i]}')"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
             </td>
         </tr>
         `;

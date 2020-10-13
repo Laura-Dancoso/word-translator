@@ -34,7 +34,7 @@ body {
 }
 
 #\:0\.targetLanguage:after {
-    content: '\f079';
+    content: '\f0ec';
     font: normal normal normal 17px/1 FontAwesome;
     color: #000000;
     left: 0px;
@@ -67,6 +67,8 @@ select::-ms-expand {
     border: 0;
     -ms-word-break: normal;
     word-break: normal;
+    cursor: pointer;
 }
-
-/* ,.goog-te-combo,.goog-te-gadget */
+i{
+    cursor: pointer;
+}
