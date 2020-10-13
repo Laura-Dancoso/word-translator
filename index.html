@@ -12,7 +12,7 @@
   <div>
     <h1 id="title" class="notranslate">Write a word and it will be translated</h1>
     <div id="languageSelected" class="flex">
-      <p>Traducir al: </p>
+      <p id='from-p'>Traducir al: </p>
       <div id="google_translate_element"></div></div>
   </div>
   <div class="flex inputs">
@@ -35,8 +35,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>  
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script defer src="js/index.js"></script>
-  <script defer src="js/export.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/export.js"></script>
   <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({

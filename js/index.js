@@ -17,6 +17,7 @@ function createTable(array) {
 function createTHead() {
   return `<thead>
     <tr class="notranslate">
+        <th>#</th>
         <th>${languages.from}</th>
         <th>${languages.to}</th>
         <th class="noExl"></th>
@@ -30,6 +31,7 @@ function createTBody(array) {
   for (let i = 0; i < array.length; i++) {
     html += `
         <tr>
+            <th class="notranslate>${i+1}</th>
             <td class="from notranslate">${array[i]}</td>
             <td class="to">${array[i]}</td>
             <td class="noExl">
@@ -127,6 +129,7 @@ $('#google_translate_element').change(function () {
   //$('#languageSelected').hide();
   table.innerHTML = createTable(Array.from(words));
   $('#title').text(`Write a word in ${languages.from} and it will be translated in ${languages.to}`)
+  $('#from-p').text(languages.from + " - ");
   //alert("If you want to change the language refresh the page" +'\n'+"Si quieres cambiar el lenguaje refrescar la página");
   $('#add').focus();
-})
+});
