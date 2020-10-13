@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Word translator</title>
+  <title class="notranslate">Word translator</title>
   <link rel="stylesheet" href="css/styles.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 </head>
 
 <body>
@@ -26,8 +25,18 @@
     </div>
   </div>
   <table id="table"></table>
+  <div class="exports">
+    <button id="to-excel">Export to Excel</button>
+    <button id="to-pdf">Export to PDF</button>
+    <button onclick="deleteAll()">Delete All</button>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="src/jquery.table2excel.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>  
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script src="js/index.js"></script>
+  <script defer src="js/index.js"></script>
+  <script defer src="js/export.js"></script>
   <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
