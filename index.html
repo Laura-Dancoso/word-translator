@@ -6,14 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title class="notranslate">Word translator</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
 <body>
   <div>
     <h1 id="title" class="notranslate">Write a word and it will be translated</h1>
     <div id="languageSelected" class="flex">
-      <p id='from-p'>Traducir al: </p>
-      <div id="google_translate_element"></div></div>
+      <p id='from-p'>Traducir al</p>
+      <div  id="google_translate_element"></div></div>
   </div>
   <div class="flex inputs">
     <div>
@@ -40,7 +41,7 @@
   <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
-        pageLanguage: 'en,es',includedLanguages: 'es,en'
+        pageLanguage: 'es,en',includedLanguages: 'es,en'
       }, 'google_translate_element');
     }
   </script>
